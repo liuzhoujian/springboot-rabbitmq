@@ -6,7 +6,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**rabbitmq自动配置RabbitAutoConfiguration:配置连接工厂、rabbitTemplate、AmqpAdmin
  *
- * 1、rabbitmq环境搭建
+ * rabbitmq中的三种exchange：
+ *  direct-exchange:根据消息的routeKey决定转发到哪个队列中
+ *  fanout-exchange:群发
+ *  topic-exchange:根据匹配规则决定转发到哪个队列中
+ *
+ * 1、 rabbitmq环境搭建-Docker
  * 2、登录rabbitmq管理界面（账号和密码都是guest）,创建exchange\queue，将exchange和queue进行绑定
  * 3、编写测试单元：注入rabbitTemplate,单播-广播测试、接受queue中的消息；编写MessageConver配置序列化方式为JSON
  * 4、编写监听方法，监听队列中的信息 @EnableRabbit+@RabbitListener
