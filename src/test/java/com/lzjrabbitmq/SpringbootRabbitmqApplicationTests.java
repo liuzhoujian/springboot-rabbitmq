@@ -21,12 +21,11 @@ public class SpringbootRabbitmqApplicationTests {
 
     @Test
     public void createExchangeAndQueue() {
-        //依次创建exchange\queue\binding
         //构建exchange
-        //amqpAdmin.declareExchange(new DirectExchange("test.direct"));
+        amqpAdmin.declareExchange(new DirectExchange("test.direct"));
 
         //构建queue
-        //amqpAdmin.declareQueue(new Queue("test.queue", true));
+        amqpAdmin.declareQueue(new Queue("test.queue", true));
 
         //构建绑定规则
         amqpAdmin.declareBinding(new Binding("test.queue", Binding.DestinationType.QUEUE,"test.direct" , "test.lzj", null));
